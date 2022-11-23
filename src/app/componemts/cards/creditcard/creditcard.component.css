@@ -1,0 +1,10 @@
+.table {
+  font-size: 1.1em;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background: #0093e2;
+	border-radius: 6px;
+	border: 100px;
+	padding: 6px;
+ }

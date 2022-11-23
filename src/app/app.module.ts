@@ -13,6 +13,7 @@ import { CardsComponent } from './componemts/cards/cards.component';
 import { CreditcardComponent } from './componemts/cards/creditcard/creditcard.component';
 import { ListCreditcardComponent } from './componemts/cards/list-creditcard/list-creditcard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ListCreditcardComponent } from './componemts/cards/list-creditcard/list
     CardsComponent,
     CreditcardComponent,
     ListCreditcardComponent,
-    
+
+
   ],
   imports: [
     BrowserModule,
@@ -28,8 +30,9 @@ import { ListCreditcardComponent } from './componemts/cards/list-creditcard/list
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

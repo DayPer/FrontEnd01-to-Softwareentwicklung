@@ -9,13 +9,20 @@ import { ScardService } from 'src/app/services/scard.service';
   styleUrls: ['./list-creditcard.component.css']
 })
 
+
+
 export class ListCreditcardComponent implements OnInit {
+
+
+  displayedColumns: string[] = ['HeadLine', 'Card Num', 'MM/aa', 'Cw','DateCreation','Id'];
+  dataSource = "";
 
   constructor(public scardService: ScardService,
               public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.scardService.lookCard()
+
   }
   deleteCard(id: number=0){
     if (confirm("Are you sure to Delete this record?"))

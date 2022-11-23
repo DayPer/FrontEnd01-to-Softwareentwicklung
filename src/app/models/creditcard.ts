@@ -4,4 +4,5 @@ export class creditcard {
     cardNumber?: string;
     expirationDay?: string;
     cw?:string;
+    createDate?: Date;
 }
