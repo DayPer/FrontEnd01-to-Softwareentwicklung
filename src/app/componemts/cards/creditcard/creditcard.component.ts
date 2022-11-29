@@ -12,20 +12,16 @@ import { ScardService } from 'src/app/services/scard.service';
   templateUrl: './creditcard.component.html',
   styleUrls: ['./creditcard.component.css']
 })
-export class CreditcardComponent implements OnInit, OnDestroy {  
+export class CreditcardComponent implements OnInit, OnDestroy {
   form: FormGroup;
   suscription!: Subscription;
   card!: creditcard;
   cardSec!: creditcardSec;
   idCard=0;
 
-  
-  
 
+  constructor(private formBuilder: FormBuilder, private scardService: ScardService ,private toastr: ToastrService) {
 
-  constructor(private formBuilder: FormBuilder, 
-    private scardService: ScardService ,
-    private toastr: ToastrService) { 
     this.form= this.formBuilder.group({
       id:0,
       headline:['',[Validators.required]],
@@ -34,7 +30,7 @@ export class CreditcardComponent implements OnInit, OnDestroy {
       cw:['',[Validators.required]]
     })
   }
-  
+
   ngOnInit(): void {
     this.suscription= this.scardService.getCard().subscribe(data =>{
       console.log(data);
@@ -53,7 +49,7 @@ export class CreditcardComponent implements OnInit, OnDestroy {
     this.suscription.unsubscribe;
   }
 
-  saveCard() { 
+  saveCard() {
 
     if (this.card.id === 0 || this.card.id===undefined ){
       this.addCard();
@@ -61,14 +57,14 @@ export class CreditcardComponent implements OnInit, OnDestroy {
       this.editCard();
     }
   }
-  
+
   addCard(){
     const card: creditcard = {
       headline: this.form.get('headline')?.value,
       cardNumber: this.form.get('cardNumber')?.value,
       expirationDay: this.form.get('expirationDay')?.value,
       cw: this.form.get('cw')?.value
-      
+
     };
 
     this.scardService.saveCard(card).subscribe(data =>{
